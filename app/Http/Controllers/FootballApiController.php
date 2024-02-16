@@ -30,7 +30,7 @@ class FootballApiController extends Controller
     }
 
 
-    public function getApiLive()
+    public static function getApiLive()
     {
         $path = 'data/live.json';
         $json = Storage::get($path);

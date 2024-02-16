@@ -2,7 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\DataCrawler;
+use App\FireNotification;
+use App\Http\Controllers\FootballApiController;
 use Illuminate\Console\Command;
 
 class ThirdPartyLive extends Command
@@ -12,20 +13,21 @@ class ThirdPartyLive extends Command
      *
      * @var string
      */
-    protected $signature = 'app:third-party-live';
+    protected $signature = 'refresh:third-party-live';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Update the api index frequently';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        // DataCrawler
+        FootballApiController::getApiLive();
+        FireNotification::sendNotification('work', 'work message');
     }
 }
