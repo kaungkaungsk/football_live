@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Yangon',
 
     /*
     |--------------------------------------------------------------------------
@@ -144,6 +144,11 @@ return [
         // 'store' => 'redis',
     ],
 
+    'credentials' => [
+        'file' => env('FIREBASE_CREDENTIALS', base_path('service_account_key.json')),
+        'auto_discovery' => false
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -169,6 +174,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\Filament\AdminPleasePanelProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // Kreait\Laravel\Firebase\ServiceProvider::class,
     ])->toArray(),
 
     /*
