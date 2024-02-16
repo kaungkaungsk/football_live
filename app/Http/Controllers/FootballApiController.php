@@ -23,7 +23,7 @@ class FootballApiController extends Controller
     public function getTest()
     {
         $event = new Event();
-        $event->event_time = Carbon::now()->addSecond(10);
+        $event->event_time = Carbon::now()->addSecond(60);
         $event->save();
 
         return  now()->diffInSeconds($event->event_time);
