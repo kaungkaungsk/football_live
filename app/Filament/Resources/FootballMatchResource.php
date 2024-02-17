@@ -54,7 +54,7 @@ class FootballMatchResource extends Resource
                 Forms\Components\Textarea::make('links')
                     ->columnSpanFull()
                     ->placeholder('Please sperate with [ , ] for multiple links')
-                    ->default(' '),
+                    ->default('-'),
                 Forms\Components\Select::make('link_type')
                     ->options([
                         'M3U8' => 'M3U8',
