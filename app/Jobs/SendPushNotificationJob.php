@@ -23,15 +23,6 @@ class SendPushNotificationJob implements ShouldQueue
 
     public function handle()
     {
-        FireNotification::sendNotification('hello', 'world');
-        // // Get users associated with the event
-        // $users = $this->event->users;
-
-        // // Send notifications to each user
-        // foreach ($users as $user) {
-        //     // Use your chosen push notification service here
-        //     // Example for Pusher:
-        //     // Pusher::trigger('notifications', 'event-'.$this->event->id, ['message' => 'An event is happening soon!']);
-        // }
+        FireNotification::sendNotification($this->event->title, $this->event->message);
     }
 }
