@@ -28,6 +28,7 @@ class FootballApiController extends Controller
         // $event->match_id = 10;
         // $event->event_time = Carbon::now()->addSecond(15);
         // $event->save();
+        return FootballApiController::crawlAndSaveData();
     }
 
 
@@ -63,13 +64,46 @@ class FootballApiController extends Controller
             return $matchDate->gte($today);
         })->values();
 
+        $reconstrut = [];
+        $keywords = ['bawlone', 'sports geek'];
 
-        $json = json_encode($filteredCollection, JSON_PRETTY_PRINT);
+        foreach ($filteredCollection as $match) {
+
+            $rematch = [];
+
+            $rematch['fixture_id'] = $match['fixture_id'];
+            $rematch['date'] = $match['date'];
+            $rematch['goals'] = $match['goals'];
+            $rematch['league'] = $match['league'];
+            $rematch['home'] = $match['home'];
+            $rematch['away'] = $match['away'];
+
+
+            $videoLinks = $match['video_links'];
+            foreach ($videoLinks as $key => $link) {
+                $name = strtolower($link['name']);
+                $link = strtolower($link['link']);
+
+                foreach ($keywords as $k) {
+                    if ((str_contains($name, $k) || str_contains($link, $k))) {
+                        unset($videoLinks[$key]);
+                        break;
+                    }
+                }
+            }
+
+            $rematch['video_links'] = collect($videoLinks)->values();
+
+            array_push($reconstrut,  $rematch);
+        }
+
+
+        $json = json_encode($reconstrut, JSON_PRETTY_PRINT);
         Storage::put($path, $json);
 
         FootballApiController::modifyJobQueue();
 
-        return $filteredCollection;
+        return $reconstrut;
     }
 
     public static function modifyJobQueue()
