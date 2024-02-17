@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataCrawler;
+use App\Helper;
 use App\Models\Advertisement;
 use App\Models\AppData;
 use App\Models\Event;
@@ -22,42 +23,77 @@ class FootballApiController extends Controller
 
     public function getTest()
     {
-        $event = new Event();
-        $event->event_time = Carbon::now()->addSecond(15);
-        $event->save();
-
-        return  now()->diffInSeconds($event->event_time);
+        // $event = new Event();
+        // $event->own = true;
+        // $event->match_id = 10;
+        // $event->event_time = Carbon::now()->addSecond(15);
+        // $event->save();
     }
 
 
-    public static function getApiLive()
+    public static function getApiLive($refresh)
     {
         $path = 'data/live.json';
         $json = Storage::get($path);
         $data = json_decode($json, true);
 
-        if (is_null($data)) {
-            $response =  DataCrawler::fetch3rdLive();
-            $data =  $response['data'];
-
-            $collection = collect($data);
-
-            $filteredCollection = $collection->filter(function ($item) {
-                $today = Carbon::today('Asia/Yangon');
-                $matchDate = Carbon::parse($item['date']);
-
-                return $matchDate->gte($today);
-            })->values();
-
-
-            $json = json_encode($filteredCollection, JSON_PRETTY_PRINT);
-            Storage::put($path, $json);
-
-            $filteredCollection;
+        if ($refresh) {
+            return FootballApiController::crawlAndSaveData();
         } else {
-            return $data;
+            if (is_null($data)) {
+                return FootballApiController::crawlAndSaveData();
+            } else {
+                return $data;
+            }
         }
     }
+
+    public static function crawlAndSaveData()
+    {
+        $path = 'data/live.json';
+        $response =  DataCrawler::fetch3rdLive();
+        $data =  $response['data'];
+
+        $collection = collect($data);
+
+        $filteredCollection = $collection->filter(function ($item) {
+            $today = Carbon::today('Asia/Yangon');
+            $matchDate = Carbon::parse($item['date']);
+
+            return $matchDate->gte($today);
+        })->values();
+
+
+        $json = json_encode($filteredCollection, JSON_PRETTY_PRINT);
+        Storage::put($path, $json);
+
+        FootballApiController::modifyJobQueue();
+
+        return $filteredCollection;
+    }
+
+    public static function modifyJobQueue()
+    {
+        $path = 'data/live.json';
+        $json = Storage::get($path);
+        $data = json_decode($json, true);
+
+        foreach ($data as $key => $value) {
+            $matchId =  $value['fixture_id'];
+            $event = Event::where(['match_id' => $matchId, 'own' => 0])->exists();
+            if (!$event) {
+                $event = new Event();
+                $event->own = false;
+                $event->match_id = $matchId;
+                $event->event_time = Carbon::parse($value['date']);
+                $event->title = Helper::titleFormat($value['league']['name']);
+                $event->message = Helper::messageFormat($value['home']['name'], $value['away']['name']);
+
+                $event->save();
+            }
+        }
+    }
+
 
     public function getApiData()
     {
@@ -67,7 +103,7 @@ class FootballApiController extends Controller
         $tvChannels = TvChannel::orderBy('created_at', 'DESC')->get();
         $tags = Tag::orderBy('created_at', 'DESC')->get();
         $footballMatch = FootballMatch::with(['team1', 'team2'])->orderBy('match_date', 'ASC')->get();
-        $apiLive = $this->getApiLive();
+        $apiLive = $this->getApiLive(false);
 
 
         return $this->encryptData([

@@ -22,6 +22,12 @@ class SendNotification extends Page implements HasForms
 
     protected static string $view = 'filament.pages.send-notification';
 
+    protected static ?string $navigationLabel = 'Send Message';
+
+    protected static ?string $navigationGroup = 'Application';
+
+    protected static ?string $modelLabel = 'Send Message';
+
     public function mount(): void
     {
         $this->form->fill();

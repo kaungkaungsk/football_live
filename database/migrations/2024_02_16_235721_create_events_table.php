@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->integer('match_id');
+            $table->boolean('own')->default(true);
             $table->dateTime('event_time');
+            $table->string('title');
+            $table->string('message');
             $table->timestamps();
         });
     }

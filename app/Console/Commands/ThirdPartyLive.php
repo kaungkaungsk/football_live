@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\FireNotification;
 use App\Http\Controllers\FootballApiController;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 
 class ThirdPartyLive extends Command
 {
@@ -27,7 +28,10 @@ class ThirdPartyLive extends Command
      */
     public function handle()
     {
-        FootballApiController::getApiLive();
-        FireNotification::sendNotification('work', 'work message');
+        FootballApiController::getApiLive(true);
+
+        $path = 'data/live.json';
+        $json = Storage::get($path);
+        $data = json_decode($json, true);
     }
 }
