@@ -57,7 +57,7 @@ class FootballApiController extends Controller
         $data =  $response['data'];
 
         if ($response['pagination']['last_page'] != 2) {
-            $page = $data['pagination']['last_page'];
+            $page = $response['pagination']['last_page'];
 
             $response =  DataCrawler::fetch3rdLive($page);
             $data =  $response['data'];
