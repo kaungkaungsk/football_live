@@ -147,8 +147,7 @@ class FootballApiController extends Controller
         $footballMatch = FootballMatch::with(['team1', 'team2'])->orderBy('match_date', 'ASC')->get();
         $apiLive = $this->getApiLive(false);
 
-
-        return $this->encryptData([
+        $collection = [
             'app_data' => $appData,
             'advertisement' => $advertisements,
             'football_highlight' => $footballHighlight,
@@ -156,7 +155,9 @@ class FootballApiController extends Controller
             'tag' => $tags,
             'football_match' => $footballMatch,
             'api_live' => $apiLive,
-        ]);
+        ];
+
+        return $this->encryptData(json_encode($collection));
     }
 
     public function postIncreaseHighlightView(Request $request)
