@@ -8,7 +8,7 @@ trait CipherTrait
 {
     public function encryptData($data)
     {
-        return $data;
+        // return $data;
         return Crypt::encrypt($data);
     }
 }
