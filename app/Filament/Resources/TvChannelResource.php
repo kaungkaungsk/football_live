@@ -41,7 +41,7 @@ class TvChannelResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->autofocus(),
-                Forms\Components\TextInput::make('link')
+                Forms\Components\Textarea::make('link')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Toggle::make('is_m3u8')

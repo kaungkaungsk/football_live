@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('tv_channels', function (Blueprint $table) {
             $table->text('link')->change();
+            $table->text('image')->change();
         });
     }
 
