@@ -9,6 +9,9 @@ use App\Models\AppData;
 use App\Models\Event;
 use App\Models\FootballHighlight;
 use App\Models\FootballMatch;
+use App\Models\Movie;
+use App\Models\OpenAd;
+use App\Models\SportNews;
 use App\Models\Tag;
 use App\Models\TvChannel;
 use App\Notification;
@@ -158,6 +161,30 @@ class FootballApiController extends Controller
         ];
 
         return $this->encryptData(json_encode($collection));
+    }
+
+    public function getOpenAd()
+    {
+        $openAd = OpenAd::get()[0];
+        // return $openAd;
+        return $this->encryptData(json_encode($openAd));
+    }
+
+    public function getMovies()
+    {
+        $movies = Movie::orderBy('created_at', 'DESC')
+            ->paginate(50);
+        return $this->encryptData(json_encode($movies));
+        // return $movies;
+    }
+
+    public function getSportNews()
+    {
+        $news = SportNews::orderBy('created_at', 'DESC')
+            ->paginate(50);;
+
+        return $this->encryptData(json_encode($news));
+        // return $news;
     }
 
     public function postIncreaseHighlightView(Request $request)

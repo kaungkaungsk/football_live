@@ -15,4 +15,7 @@ Route::controller(FootballApiController::class)->group(function () {
     Route::post("/test", 'getTest');
     Route::get("/api_data", 'getApiData');
     Route::post("/increase_highlight_view", 'postIncreaseHighlightView');
+    Route::get("/sport_news", 'getSportNews');
+    Route::get("/movies", 'getMovies');
+    Route::get("/open_ad", 'getOpenAd');
 });

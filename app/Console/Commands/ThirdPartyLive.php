@@ -28,10 +28,8 @@ class ThirdPartyLive extends Command
      */
     public function handle()
     {
-        FootballApiController::getApiLive(true);
+        // FireNotification::sendNotification('test', 'test message');
 
-        $path = 'data/live.json';
-        $json = Storage::get($path);
-        $data = json_decode($json, true);
+        FootballApiController::getApiLive(true);
     }
 }

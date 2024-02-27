@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use Google\Rpc\Context\AttributeContext\Response;
 use Illuminate\Support\Facades\Crypt;
 
 trait CipherTrait
@@ -9,6 +10,6 @@ trait CipherTrait
     public function encryptData($data)
     {
         // return $data;
-        return Crypt::encrypt($data);
+        return  response(['challenge' => Crypt::encrypt($data)]);
     }
 }
