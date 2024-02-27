@@ -20,3 +20,4 @@ Route::controller(FootballApiController::class)->group(function () {
     Route::get("/movies", 'getMovies');
     Route::get("/open_ad", 'getOpenAd');
 });
+// php artisan make:migration alter_table_[yourtablenamehere]_change_[somecolumnname]
