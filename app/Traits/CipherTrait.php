@@ -12,4 +12,10 @@ trait CipherTrait
         // return $data;
         return  response(['challenge' => Crypt::encrypt($data)]);
     }
+
+    public function oldEncryptData($data)
+    {
+        // return $data;
+        return  Crypt::encrypt($data);
+    }
 }

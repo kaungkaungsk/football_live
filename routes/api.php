@@ -13,7 +13,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::controller(FootballApiController::class)->group(function () {
     Route::post("/test", 'getTest');
-    Route::get("/api_data", 'getApiData');
+    Route::get("/api_data", 'getOldApiData');
+    Route::get("/new_api_data", 'getNewApiData');
     Route::post("/increase_highlight_view", 'postIncreaseHighlightView');
     Route::get("/sport_news", 'getSportNews');
     Route::get("/movies", 'getMovies');

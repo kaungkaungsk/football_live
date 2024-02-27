@@ -140,7 +140,31 @@ class FootballApiController extends Controller
     }
 
 
-    public function getApiData()
+    public function getOldApiData()
+    {
+        $appData = AppData::get()[0];
+        $advertisements = Advertisement::orderBy('created_at', 'DESC')->get();
+        $footballHighlight = FootballHighlight::orderBy('created_at', 'DESC')->get();
+        $tvChannels = TvChannel::orderBy('created_at', 'DESC')->get();
+        $tags = Tag::orderBy('created_at', 'DESC')->get();
+        $footballMatch = FootballMatch::with(['team1', 'team2'])->orderBy('match_date', 'ASC')->get();
+        $apiLive = $this->getApiLive(false);
+
+        $collection = [
+            'app_data' => $appData,
+            'advertisement' => $advertisements,
+            'football_highlight' => $footballHighlight,
+            'tv_channel' => $tvChannels,
+            'tag' => $tags,
+            'football_match' => $footballMatch,
+            'api_live' => $apiLive,
+        ];
+
+        return $this->oldEncryptData(json_encode($collection));
+    }
+
+
+    public function getNewApiData()
     {
         $appData = AppData::get()[0];
         $advertisements = Advertisement::orderBy('created_at', 'DESC')->get();
@@ -162,6 +186,7 @@ class FootballApiController extends Controller
 
         return $this->encryptData(json_encode($collection));
     }
+
 
     public function getOpenAd()
     {
