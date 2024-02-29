@@ -165,6 +165,7 @@ class HighlighCrawler:
 
             if script_tag:
                 highlight_link = script_tag.text.split("link_highlight = ")[1].split(";")[0].strip()
+                highlight_link = highlight_link.replace("'", '')
                 print(highlight_link)
 
             item_map = ('https://bingsportlive.com', highlight_link, 'Default', league, match_datetime, leftTeam, rightTeam, vs, leftLogo, rightLogo)
