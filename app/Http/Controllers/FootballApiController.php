@@ -11,6 +11,7 @@ use App\Models\FootballHighlight;
 use App\Models\FootballMatch;
 use App\Models\Movie;
 use App\Models\OpenAd;
+use App\Models\SportHighlight;
 use App\Models\SportNews;
 use App\Models\Tag;
 use App\Models\TvChannel;
@@ -23,12 +24,6 @@ use Illuminate\Support\Facades\Storage;
 class FootballApiController extends Controller
 {
     use CipherTrait;
-
-    public function getTest()
-    {
-        return DataCrawler::fetchHighlight();
-    }
-
 
     public static function getApiLive($refresh)
     {
@@ -185,26 +180,37 @@ class FootballApiController extends Controller
 
     public function getOpenAd()
     {
-        $openAd = OpenAd::get()[0];
-        // return $openAd;
-        return $this->encryptData(json_encode($openAd));
+        $data = OpenAd::get()[0];
+        return $this->encryptData(json_encode($data));
+    }
+
+    public function getTvChannels()
+    {
+        $data = TvChannel::orderBy('created_at', 'DESC')
+            ->paginate(50);
+        return $this->encryptData(json_encode($data));
     }
 
     public function getMovies()
     {
-        $movies = Movie::orderBy('created_at', 'DESC')
+        $data = Movie::orderBy('created_at', 'DESC')
             ->paginate(50);
-        return $this->encryptData(json_encode($movies));
-        // return $movies;
+        return $this->encryptData(json_encode($data));
+    }
+
+    public function getSportHighlights()
+    {
+        $data = SportHighlight::orderBy('match_date', 'DESC')
+            ->paginate(50);
+        return $this->encryptData(json_encode($data));
     }
 
     public function getSportNews()
     {
-        $news = SportNews::orderBy('created_at', 'DESC')
+        $data = SportNews::orderBy('created_at', 'DESC')
             ->paginate(50);;
 
-        return $this->encryptData(json_encode($news));
-        // return $news;
+        return $this->encryptData(json_encode($data));
     }
 
     public function postIncreaseHighlightView(Request $request)
