@@ -12,7 +12,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::controller(FootballApiController::class)->group(function () {
-    Route::post("/test", 'getTest');
+    Route::get("/test", 'getTest');
     Route::get("/api_data", 'getOldApiData');
     Route::get("/new_api_data", 'getNewApiData');
     Route::post("/increase_highlight_view", 'postIncreaseHighlightView');
@@ -20,4 +20,3 @@ Route::controller(FootballApiController::class)->group(function () {
     Route::get("/movies", 'getMovies');
     Route::get("/open_ad", 'getOpenAd');
 });
-// php artisan make:migration alter_table_[yourtablenamehere]_change_[somecolumnname]

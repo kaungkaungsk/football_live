@@ -19,6 +19,17 @@ class OpenAdResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Open Ads';
+
+    protected static ?string $navigationGroup = 'Application';
+
+    protected static ?string $modelLabel = 'Open Ads';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form

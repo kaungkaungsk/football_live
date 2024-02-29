@@ -19,6 +19,17 @@ class SportNewsResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Sport News';
+
+    protected static ?string $navigationGroup = 'Application';
+
+    protected static ?string $modelLabel = 'Sport News';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form

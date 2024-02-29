@@ -26,12 +26,7 @@ class FootballApiController extends Controller
 
     public function getTest()
     {
-        // $event = new Event();
-        // $event->own = true;
-        // $event->match_id = 10;
-        // $event->event_time = Carbon::now()->addSecond(15);
-        // $event->save();
-        return FootballApiController::crawlAndSaveData();
+        return DataCrawler::fetchHighlight();
     }
 
 

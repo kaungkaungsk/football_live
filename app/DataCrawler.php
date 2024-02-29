@@ -46,24 +46,38 @@ class DataCrawler
     //     return $modIntVValues;
     // }
 
-    // static public function fetchLatest3d()
-    // {
-    //     $url = 'https://mylucky2d3d.com/3d';
+    static public function fetchHighlight()
+    {
+        $url = 'https://bingsportlive.com/high-light';
 
-    //     $httpClient = new Client();
-    //     $response = $httpClient->get($url);
-    //     $htmlContent = (string) $response->getBody();
+        $httpClient = new Client();
+        $response = $httpClient->get($url);
+        $htmlContent = (string) $response->getBody();
 
-    //     $crawler = new Crawler($htmlContent);
+        $crawler = new Crawler($htmlContent);
 
-    //     $latestData = $crawler->filter('.feature-card')->first();
+        $itemMatches = $crawler->filter('a.item-match');
 
-    //     $dateString = $latestData->filter('.blockTime')->first()->text();
-    //     $carbonDate = Carbon::createFromFormat('d/M/Y', $dateString);
-    //     $latest3D = $latestData->filter('.blockLucky')->first()->text();
+        $data = [];
 
-    //     return [$carbonDate, $latest3D];
-    // }
+        foreach ($itemMatches as $itemMatch) {
+            // $itemContent = $itemMatch->nodeValue; // or $itemContent = $itemMatch->html();
+
+            // return $itemContent;
+            // // Create a new crawler from the content (optional)
+            // if (strpos($itemContent, '<') !== false) { // Check if content contains HTML tags
+            //     $itemCrawler = new Crawler($itemContent);
+            //     $leagueName = $itemCrawler->filter('.league-name')->text();
+            // } else {
+            //     // Content is plain text, handle accordingly
+            //     $leagueName = null; // or process plain text
+            // }
+
+            $data[] = ($itemMatch);
+        }
+
+        return $data;
+    }
 
 
     // static public function fetchTaiwanData()

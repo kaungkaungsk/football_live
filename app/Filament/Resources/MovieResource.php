@@ -19,6 +19,19 @@ class MovieResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+
+    protected static ?string $navigationLabel = 'Movie';
+
+    protected static ?string $navigationGroup = 'Application';
+
+    protected static ?string $modelLabel = 'Movie';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+
     public static function form(Form $form): Form
     {
         return $form
