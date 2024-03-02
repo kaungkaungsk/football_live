@@ -36,11 +36,21 @@ class TvChannelResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('image')->required(),
+                Forms\Components\FileUpload::make('image'),
                 Forms\Components\TextInput::make('channel_name')
                     ->required()
                     ->maxLength(255)
                     ->autofocus(),
+                Forms\Components\Select::make('category')
+                    ->options([
+                        'myanmar' => 'Myanmar Channels',
+                        'movies' => 'Movies Channels',
+                        'sport' => 'Sport Channels',
+                        'kids' => 'Kids Channels',
+                        'news' => 'News Channels',
+                    ])
+                    ->default(0)
+                    ->required(),
                 Forms\Components\Textarea::make('link')
                     ->required()
                     ->maxLength(255),
@@ -50,6 +60,8 @@ class TvChannelResource extends Resource
             ]);
     }
 
+
+
     public static function table(Table $table): Table
     {
         return $table
@@ -57,8 +69,11 @@ class TvChannelResource extends Resource
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('channel_name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('link')
+                Tables\Columns\TextColumn::make('category')
+                    ->default('-')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('link')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\IconColumn::make('is_m3u8')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
