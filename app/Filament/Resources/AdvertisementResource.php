@@ -3,17 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AdvertisementResource\Pages;
-use App\Filament\Resources\AdvertisementResource\RelationManagers;
 use App\Models\Advertisement;
 use Filament\Forms;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class AdvertisementResource extends Resource
 {
@@ -21,11 +16,11 @@ class AdvertisementResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    protected static ?string $navigationLabel = 'Advertisement';
+    protected static ?string $navigationLabel = 'Slide Ads';
 
-    protected static ?string $navigationGroup = 'Application';
+    protected static ?string $navigationGroup = 'Advertisement';
 
-    protected static ?string $modelLabel = 'Advertisement';
+    protected static ?string $modelLabel = 'Slide Ads';
 
     public static function getNavigationBadge(): ?string
     {
@@ -36,7 +31,10 @@ class AdvertisementResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('image')->required(),
+                Forms\Components\FileUpload::make('image')
+                    ->image(),
+                Forms\Components\TextInput::make('image_link')
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('link')
                     ->maxLength(255)
                     ->columnSpanFull(),
@@ -48,6 +46,9 @@ class AdvertisementResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image_link'),
+
+                Tables\Columns\TextColumn::make('click_count'),
                 Tables\Columns\TextColumn::make('link')
                     ->searchable()
                     ->default('[ - ]'),

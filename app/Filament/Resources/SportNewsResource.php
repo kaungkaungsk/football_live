@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SportNewsResource\Pages;
-use App\Filament\Resources\SportNewsResource\RelationManagers;
 use App\Models\SportNews;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SportNewsResource extends Resource
 {
@@ -39,8 +36,8 @@ class SportNewsResource extends Resource
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->directory('news')
-                    ->required(),
+                    ->directory('news'),
+                Forms\Components\TextInput::make('image_link'),
                 Forms\Components\TextInput::make('short')
                     ->required()
                     ->maxLength(255),
@@ -55,10 +52,12 @@ class SportNewsResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image_link'),
+
                 Tables\Columns\TextColumn::make('title')
                     ->label('News Title')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('short')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),

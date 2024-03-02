@@ -14,5 +14,6 @@ class TvChannel extends Model
         'image',
         'link',
         'is_m3u8',
+        'image_link',
     ];
 }

@@ -41,8 +41,8 @@ class MovieResource extends Resource
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->directory('movie')
-                    ->required(),
+                    ->directory('movie'),
+                Forms\Components\TextInput::make('image_link'),
                 Forms\Components\TextInput::make('link')
                     ->required()
                     ->maxLength(255),
@@ -57,6 +57,7 @@ class MovieResource extends Resource
                     ->label('Movie Name')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image_link'),
                 Tables\Columns\TextColumn::make('link')
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')

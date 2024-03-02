@@ -133,11 +133,23 @@ class FootballApiController extends Controller
     public function getOldApiData()
     {
         $appData = AppData::get()[0];
+
         $advertisements = Advertisement::orderBy('created_at', 'DESC')->get();
+        foreach ($advertisements as $item) {
+            $item->image = $item->image ?? $item->image_link;
+        }
+
         $footballHighlight = FootballHighlight::orderBy('created_at', 'DESC')->get();
+
         $tvChannels = TvChannel::orderBy('created_at', 'DESC')->get();
+        foreach ($tvChannels as $item) {
+            $item->image = $item->image ?? $item->image_link;
+        }
+
         $tags = Tag::orderBy('created_at', 'DESC')->get();
+
         $footballMatch = FootballMatch::with(['team1', 'team2'])->orderBy('match_date', 'ASC')->get();
+
         $apiLive = $this->getApiLive(false);
 
         $collection = [
@@ -157,11 +169,23 @@ class FootballApiController extends Controller
     public function getNewApiData()
     {
         $appData = AppData::get()[0];
+
         $advertisements = Advertisement::orderBy('created_at', 'DESC')->get();
+        foreach ($advertisements as $item) {
+            $item->image = $item->image ?? $item->image_link;
+        }
+
         $footballHighlight = FootballHighlight::orderBy('created_at', 'DESC')->get();
+
         $tvChannels = TvChannel::orderBy('created_at', 'DESC')->get();
+        foreach ($tvChannels as $item) {
+            $item->image = $item->image ?? $item->image_link;
+        }
+
         $tags = Tag::orderBy('created_at', 'DESC')->get();
+
         $footballMatch = FootballMatch::with(['team1', 'team2'])->orderBy('match_date', 'ASC')->get();
+
         $apiLive = $this->getApiLive(false);
 
         $collection = [
@@ -181,6 +205,10 @@ class FootballApiController extends Controller
     public function getOpenAd()
     {
         $data = OpenAd::get()[0];
+        foreach ($data as $item) {
+            $item->image = $item->image ?? $item->image_link;
+        }
+
         return $this->encryptData(json_encode($data));
     }
 
@@ -188,6 +216,11 @@ class FootballApiController extends Controller
     {
         $data = TvChannel::orderBy('created_at', 'DESC')
             ->paginate(50);
+
+        foreach ($data as $item) {
+            $item->image = $item->image ?? $item->image_link;
+        }
+
         return $this->encryptData(json_encode($data));
     }
 
@@ -195,6 +228,11 @@ class FootballApiController extends Controller
     {
         $data = Movie::orderBy('created_at', 'DESC')
             ->paginate(50);
+
+        foreach ($data as $item) {
+            $item->image = $item->image ?? $item->image_link;
+        }
+
         return $this->encryptData(json_encode($data));
     }
 
@@ -210,16 +248,10 @@ class FootballApiController extends Controller
         $data = SportNews::orderBy('created_at', 'DESC')
             ->paginate(50);;
 
+        foreach ($data as $item) {
+            $item->image = $item->image ?? $item->image_link;
+        }
+
         return $this->encryptData(json_encode($data));
-    }
-
-    public function postIncreaseHighlightView(Request $request)
-    {
-
-        $footballHighlight = FootballHighlight::find($request->highlight_id);
-
-        $footballHighlight->increment('views');
-
-        return response('Success', 200);
     }
 }

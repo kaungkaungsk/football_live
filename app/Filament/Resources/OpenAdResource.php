@@ -3,25 +3,22 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\OpenAdResource\Pages;
-use App\Filament\Resources\OpenAdResource\RelationManagers;
 use App\Models\OpenAd;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class OpenAdResource extends Resource
 {
     protected static ?string $model = OpenAd::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     protected static ?string $navigationLabel = 'Open Ads';
 
-    protected static ?string $navigationGroup = 'Application';
+    protected static ?string $navigationGroup = 'Advertisement';
 
     protected static ?string $modelLabel = 'Open Ads';
 
@@ -36,8 +33,9 @@ class OpenAdResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->directory('openad')
-                    ->required(),
+                    ->directory('openad'),
+                Forms\Components\TextInput::make('image_link')
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('link')
                     ->required()
                     ->label('Ads Link')
@@ -55,6 +53,9 @@ class OpenAdResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\ImageColumn::make('image_link'),
+
+                Tables\Columns\TextColumn::make('click_count'),
                 Tables\Columns\TextColumn::make('link')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('display_second')

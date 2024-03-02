@@ -24,7 +24,7 @@ class SendNotification extends Page implements HasForms
 
     protected static ?string $navigationLabel = 'Send Message';
 
-    protected static ?string $navigationGroup = 'Application';
+    protected static ?string $navigationGroup = 'Management';
 
     protected static ?string $modelLabel = 'Send Message';
 

@@ -2,45 +2,41 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AppDataResource\Pages;
-use App\Models\AppData;
+use App\Filament\Resources\InterstitialAdResource\Pages;
+use App\Models\InterstitialAd;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class AppDataResource extends Resource
+class InterstitialAdResource extends Resource
 {
-    protected static ?string $model = AppData::class;
+    protected static ?string $model = InterstitialAd::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    protected static ?string $navigationLabel = 'App Setting';
+    protected static ?string $navigationLabel = 'Interstitial Ads';
 
-    protected static ?string $navigationGroup = 'Management';
+    protected static ?string $navigationGroup = 'Advertisement';
 
-    protected static ?string $modelLabel = 'App Setting';
+    protected static ?string $modelLabel = 'Interstitial Ads';
 
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
 
-
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('interstitial_frequency')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
-                Forms\Components\TextInput::make('help_center_link')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('privacy_policy_link')
-                    ->required()
+                Forms\Components\FileUpload::make('media_path')
+                    ->image()
+                    ->directory('interstitial'),
+                Forms\Components\TextInput::make('media_link')
+                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('click_url')
                     ->maxLength(255),
             ]);
     }
@@ -49,12 +45,11 @@ class AppDataResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('interstitial_frequency')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('help_center_link')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('privacy_policy_link')
+                Tables\Columns\ImageColumn::make('media_path'),
+                Tables\Columns\ImageColumn::make('media_link'),
+
+                Tables\Columns\TextColumn::make('click_count'),
+                Tables\Columns\TextColumn::make('click_url')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -70,7 +65,6 @@ class AppDataResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -89,9 +83,9 @@ class AppDataResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAppData::route('/'),
-            'create' => Pages\CreateAppData::route('/create'),
-            'edit' => Pages\EditAppData::route('/{record}/edit'),
+            'index' => Pages\ListInterstitialAds::route('/'),
+            'create' => Pages\CreateInterstitialAd::route('/create'),
+            'edit' => Pages\EditInterstitialAd::route('/{record}/edit'),
         ];
     }
 }

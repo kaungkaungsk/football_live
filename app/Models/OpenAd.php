@@ -10,6 +10,10 @@ class OpenAd extends Model
     use HasFactory;
 
     protected $fillable = [
-        'image', 'link', 'display_second'
+        'image',
+        'link',
+        'display_second',
+        'image_link',
+        'click_count',
     ];
 }

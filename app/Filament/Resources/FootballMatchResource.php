@@ -3,16 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\FootballMatchResource\Pages;
-use App\Filament\Resources\FootballMatchResource\RelationManagers;
 use App\Models\FootballMatch;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class FootballMatchResource extends Resource
 {

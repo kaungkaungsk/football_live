@@ -10,6 +10,6 @@ class SportNews extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'image', 'short', 'content'
+        'title', 'image', 'short', 'content', 'image_link'
     ];
 }
