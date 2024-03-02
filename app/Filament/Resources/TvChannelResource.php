@@ -43,11 +43,11 @@ class TvChannelResource extends Resource
                     ->autofocus(),
                 Forms\Components\Select::make('category')
                     ->options([
-                        'myanmar' => 'Myanmar Channels',
-                        'movies' => 'Movies Channels',
-                        'sport' => 'Sport Channels',
-                        'kids' => 'Kids Channels',
-                        'news' => 'News Channels',
+                        'Myanmar Channels' => 'Myanmar Channels',
+                        'Movies Channels' => 'Movies Channels',
+                        'Sport Channels' => 'Sport Channels',
+                        'Kids Channels' => 'Kids Channels',
+                        'News Channels' => 'News Channels',
                     ])
                     ->default(0)
                     ->required(),

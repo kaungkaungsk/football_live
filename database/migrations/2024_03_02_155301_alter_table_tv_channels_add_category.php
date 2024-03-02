@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::table('tv_channels', function (Blueprint $table) {
             $categories = [
-                'myanmar',
-                'movies',
-                'sport',
-                'kids',
-                'news',
+                'Myanmar Channels',
+                'Movies Channels',
+                'Sport Channels',
+                'Kids Channels',
+                'News Channels',
             ];
 
             $table->enum('category', $categories);
