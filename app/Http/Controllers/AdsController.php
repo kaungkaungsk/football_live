@@ -37,12 +37,14 @@ class AdsController extends Controller
             $ad->image = $ad->image ?? $ad->image_link;
         }
 
-        return response([
+        $data = [
             'slide_ad' => $slideAds,
             'interstitial_ad' => $interstialAds,
             'banner_ad' => $bannerAds,
             'open_ad' => $openAds,
-        ]);
+        ];
+
+        return $this->encryptData(json_encode($data));
     }
 
     public function postClickCount(Request $request)
