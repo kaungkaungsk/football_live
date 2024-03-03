@@ -60,10 +60,7 @@ class BannerAdResource extends Resource
                     ->default(0)
                     ->required(),
 
-                // [
-                //     'M3U8' => 'M3U8',
-                //     'RTMP' => 'RTMP',
-                // ]
+
             ]);
     }
 
@@ -73,20 +70,19 @@ class BannerAdResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('media_path'),
                 Tables\Columns\ImageColumn::make('media_link'),
-
-                Tables\Columns\TextColumn::make('click_count'),
-                Tables\Columns\TextColumn::make('click_url')
+                Tables\Columns\TextColumn::make('location')
+                    ->sortable()
                     ->searchable(),
+                Tables\Columns\TextColumn::make('click_count'),
                 Tables\Columns\TextColumn::make('height')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('width')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('location')
-                    ->sortable()
-                    ->searchable(),
 
+                Tables\Columns\TextColumn::make('click_url')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
