@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('advertisements', function (Blueprint $table) {
-            $table->text('click_count')->default(0);
+            $table->integer('click_count')->default(0);
             $table->text('image_link')->nullable();
             $table->text('image')->nullable()->change();
         });

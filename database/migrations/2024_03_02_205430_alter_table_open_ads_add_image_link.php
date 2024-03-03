@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('open_ads', function (Blueprint $table) {
             $table->text('image_link')->nullable();
             $table->text('image')->nullable()->change();
-            $table->text('click_count')->default(0);
+            $table->integer('click_count')->default(0);
         });
     }
 
