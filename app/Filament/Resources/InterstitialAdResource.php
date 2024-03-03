@@ -37,6 +37,7 @@ class InterstitialAdResource extends Resource
                 Forms\Components\TextInput::make('media_link')
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('click_url')
+                    ->required()
                     ->maxLength(255),
             ]);
     }

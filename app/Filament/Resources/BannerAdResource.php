@@ -39,6 +39,7 @@ class BannerAdResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('click_url')
                     ->maxLength(255)
+                    ->required()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('height')
                     ->required()
