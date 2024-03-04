@@ -12,62 +12,39 @@
             background-color: #1f1f1f;
         }
 
-        nav {
-            /* display: flex; */
+        .container {
+            height: 100vh;
+            display: grid;
+            align-content: center;
+            justify-content: center;
         }
 
-        nav>a {
+
+        .logo {
+            display: block;
+            height: 180px;
+            margin-bottom: 2rem;
+        }
+
+        .button {
+            text-align: center;
+            color: white;
+            background-color: #aa3e00;
             text-decoration: none;
-            color: whitesmoke;
-        }
-
-        .title {
-            display: flex;
-
-        }
-
-        .title img {
-            height: 60px;
-        }
-
-        .title a {
-            line-height: 60px;
-            text-decoration: none;
-            font-size: 1.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            color: #e70000;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            padding: 2rem 2rem;
-            line-height: 60px
-        }
-
-        @media screen and (min-width:740px) {
-            header {
-                padding: 2rem 8rem;
-            }
+            padding: 0.8rem;
+            /* margin: auto; */
+            border-radius: 0.4rem;
         }
     </style>
 </head>
 
 <body>
 
-    <header>
+    <div class="container">
+        <img src="image/logo.png" alt="" class="logo">
+        <a href="http://" class="button">Download Now</a>
+    </div>
 
-        <div class="title">
-            <img src="image/logo.png" alt="" class="logo">
-            <a href="#">The Reds Show</a>
-        </div>
-        <nav>
-            <a href="#">Privacy Policy</a>
-        </nav>
-    </header>
-
-    {{-- <img src="image/logo.png" alt="" class="logo"> --}}
 
 </body>
 
