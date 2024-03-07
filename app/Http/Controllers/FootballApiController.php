@@ -25,18 +25,35 @@ class FootballApiController extends Controller
 {
     use CipherTrait;
 
+    public function getTest()
+    {
+        $path2 = 'data/bingsportlive.json';
+        $json2 = Storage::get($path2);
+        $data2 = json_decode($json2, true);
+
+        return $data2;
+    }
+
     public static function getApiLive($refresh)
     {
         $path = 'data/live.json';
         $json = Storage::get($path);
         $data = json_decode($json, true);
 
+        //todo: uncomment this code
+        // $path2 = 'data/bingsportlive.json';
+        // $json2 = Storage::get($path2);
+        // $data2 = json_decode($json2, true);
+
         if ($refresh) {
+            // return array_merge(FootballApiController::crawlAndSaveData(), $data2);
             return FootballApiController::crawlAndSaveData();
         } else {
             if (is_null($data)) {
+                // return array_merge(FootballApiController::crawlAndSaveData(), $data2);
                 return FootballApiController::crawlAndSaveData();
             } else {
+                // return array_merge($data, $data2);
                 return $data;
             }
         }
@@ -127,6 +144,26 @@ class FootballApiController extends Controller
                 $event->save();
             }
         }
+
+        //todo: uncomment this code
+        // $path2 = 'data/bingsportlive.json';
+        // $json2 = Storage::get($path2);
+        // $data2 = json_decode($json2, true);
+
+        // foreach ($data2 as $key => $value) {
+        //     $matchId =  $value['fixture_id'];
+        //     $event = Event::where(['match_id' => $matchId, 'own' => 0])->exists();
+        //     if (!$event) {
+        //         $event = new Event();
+        //         $event->own = false;
+        //         $event->match_id = $matchId;
+        //         $event->event_time = Carbon::parse($value['date']);
+        //         $event->title = Helper::titleFormat($value['league']['name']);
+        //         $event->message = Helper::messageFormat($value['home']['name'], $value['away']['name']);
+
+        //         $event->save();
+        //     }
+        // }
     }
 
 
