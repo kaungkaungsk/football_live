@@ -15,24 +15,26 @@ use App\Models\SportHighlight;
 use App\Models\SportNews;
 use App\Models\Tag;
 use App\Models\TvChannel;
-use App\Notification;
 use App\Traits\CipherTrait;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class FootballApiController extends Controller
 {
     use CipherTrait;
 
-    public function getTest()
-    {
-        $path2 = 'data/bingsportlive.json';
-        $json2 = Storage::get($path2);
-        $data2 = json_decode($json2, true);
+    /// flag to show bing sport live or not
+    static  $showBingSport = true;
 
-        return $data2;
-    }
+    // public function getTest()
+    // {
+    //     $path2 = 'data/bingsportlive.json';
+    //     $json2 = Storage::get($path2);
+    //     $data2 = json_decode($json2, true);
+
+    //     return $data2;
+    //     return Carbon::now('Asia/Yangon');
+    // }
 
     public static function getApiLive($refresh)
     {
@@ -40,21 +42,31 @@ class FootballApiController extends Controller
         $json = Storage::get($path);
         $data = json_decode($json, true);
 
-        //todo: uncomment this code
-        // $path2 = 'data/bingsportlive.json';
-        // $json2 = Storage::get($path2);
-        // $data2 = json_decode($json2, true);
+        if (self::$showBingSport) {
+            $path2 = 'data/bingsportlive.json';
+            $json2 = Storage::get($path2);
+            $data2 = json_decode($json2, true);
+        }
 
         if ($refresh) {
-            // return array_merge(FootballApiController::crawlAndSaveData(), $data2);
-            return FootballApiController::crawlAndSaveData();
+            if (self::$showBingSport) {
+                return array_merge(FootballApiController::crawlAndSaveData(), $data2);
+            } else {
+                return FootballApiController::crawlAndSaveData();
+            }
         } else {
             if (is_null($data)) {
-                // return array_merge(FootballApiController::crawlAndSaveData(), $data2);
-                return FootballApiController::crawlAndSaveData();
+                if (self::$showBingSport) {
+                    return array_merge(FootballApiController::crawlAndSaveData(), $data2);
+                } else {
+                    return FootballApiController::crawlAndSaveData();
+                }
             } else {
-                // return array_merge($data, $data2);
-                return $data;
+                if (self::$showBingSport) {
+                    return array_merge($data, $data2);
+                } else {
+                    return $data;
+                }
             }
         }
     }
@@ -145,25 +157,27 @@ class FootballApiController extends Controller
             }
         }
 
-        //todo: uncomment this code
-        // $path2 = 'data/bingsportlive.json';
-        // $json2 = Storage::get($path2);
-        // $data2 = json_decode($json2, true);
 
-        // foreach ($data2 as $key => $value) {
-        //     $matchId =  $value['fixture_id'];
-        //     $event = Event::where(['match_id' => $matchId, 'own' => 0])->exists();
-        //     if (!$event) {
-        //         $event = new Event();
-        //         $event->own = false;
-        //         $event->match_id = $matchId;
-        //         $event->event_time = Carbon::parse($value['date']);
-        //         $event->title = Helper::titleFormat($value['league']['name']);
-        //         $event->message = Helper::messageFormat($value['home']['name'], $value['away']['name']);
+        if (self::$showBingSport) {
+            $path2 = 'data/bingsportlive.json';
+            $json2 = Storage::get($path2);
+            $data2 = json_decode($json2, true);
 
-        //         $event->save();
-        //     }
-        // }
+            foreach ($data2 as $key => $value) {
+                $matchId =  $value['fixture_id'];
+                $event = Event::where(['match_id' => $matchId, 'own' => 0])->exists();
+                if (!$event) {
+                    $event = new Event();
+                    $event->own = false;
+                    $event->match_id = $matchId;
+                    $event->event_time = Carbon::parse($value['date']);
+                    $event->title = Helper::titleFormat($value['league']['name']);
+                    $event->message = Helper::messageFormat($value['home']['name'], $value['away']['name']);
+
+                    $event->save();
+                }
+            }
+        }
     }
 
 

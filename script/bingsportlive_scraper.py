@@ -44,8 +44,12 @@ def scrapt_live(url):
     #data is empty, we don't use 
     # if info['localteam_title']=='' or info['visitorteam_title']=='':
     #   return None
+    
+    print(match_info_js['name'])
 
     teams = str(match_info_js['name']).split('vs')
+
+    if len(teams) != 2: return None
 
     match_data['video_links'] = video_links
 

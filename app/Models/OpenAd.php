@@ -15,5 +15,6 @@ class OpenAd extends Model
         'display_second',
         'image_link',
         'click_count',
+        'player_marquee_ad',
     ];
 }

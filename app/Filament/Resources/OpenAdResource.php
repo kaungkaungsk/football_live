@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\OpenAdResource\Pages;
 use App\Models\OpenAd;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -31,20 +32,29 @@ class OpenAdResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->directory('openad'),
-                Forms\Components\TextInput::make('image_link')
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('link')
-                    ->required()
-                    ->label('Ads Link')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('display_second')
-                    ->required()
-                    ->label('Display time second')
-                    ->default(5)
-                    ->numeric(),
+                Section::make([
+                    Forms\Components\FileUpload::make('image')
+                        ->image()
+                        ->directory('openad'),
+                    Forms\Components\TextInput::make('image_link')
+                        ->columnSpanFull(),
+                    Forms\Components\TextInput::make('link')
+                        ->required()
+                        ->label('Ads Link')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('display_second')
+                        ->required()
+                        ->label('Display time second')
+                        ->default(5)
+                        ->numeric(),
+                ]),
+
+
+                Section::make([
+                    Forms\Components\TextInput::make('player_marquee_ad')
+                        ->label('Video Player Marquee Ad'),
+                ]),
+
             ]);
     }
 
