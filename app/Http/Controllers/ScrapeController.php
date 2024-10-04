@@ -8,12 +8,11 @@ use App\Services\ScrapeService;
 class ScrapeController extends Controller
 {
     public function scrape(){
-        $liveMatches = ScrapeService::getLiveMatches();
-        dd($liveMatches);
+        $liveMatches = ScrapeService::getScrapedMatches();
+        print json_encode($liveMatches);
     }
 
     public function links($id){
         $result = ScrapeService::getVideoLinks($id);
-        dd($result);
     }
 }

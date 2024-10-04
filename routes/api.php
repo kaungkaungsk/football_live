@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\FootballApiController;
+use App\Http\Controllers\ScrapeController;
 use App\Http\Controllers\FootballApiController2;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,6 @@ Route::controller(AdsController::class)->group(function () {
     Route::get('/ads_data', 'getAdsData');
     Route::post('/click_count', 'postClickCount');
 });
+
+Route::get('/scrape', [ScrapeController::class, 'scrape']);
+Route::get('/scrape/{id}', [ScrapeController::class, 'links']);

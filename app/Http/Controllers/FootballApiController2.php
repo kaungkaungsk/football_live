@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\DataCrawler;
 use App\Helper;
-use App\Models\Advertisement;
-use App\Models\AppData;
+use Carbon\Carbon;
+use App\Models\Tag;
+use App\DataCrawler;
 use App\Models\Event;
-use App\Models\FootballHighlight;
-use App\Models\FootballMatch;
 use App\Models\Movie;
 use App\Models\OpenAd;
-use App\Models\SportHighlight;
+use App\Models\AppData;
 use App\Models\SportNews;
-use App\Models\Tag;
 use App\Models\TvChannel;
 use App\Traits\CipherTrait;
-use Carbon\Carbon;
+use App\Models\Advertisement;
+use App\Models\FootballMatch;
+use App\Models\SportHighlight;
+use App\Services\ScrapeService;
+use App\Models\FootballHighlight;
 use Illuminate\Support\Facades\Storage;
 
 class FootballApiController2 extends Controller
@@ -77,7 +78,8 @@ class FootballApiController2 extends Controller
 
         $footballMatch = FootballMatch::with(['team1', 'team2'])->orderBy('match_date', 'ASC')->get();
 
-        $apiLive = self::getApiLive();
+        // $apiLive = self::getApiLive();
+        $apiLive = ScrapeService::getScrapedMatches();
 
         $collection = [
             'app_data' => $appData,
@@ -90,6 +92,7 @@ class FootballApiController2 extends Controller
         ];
 
         return $this->encryptData(json_encode($collection));
+        // return json_encode($collection);
     }
 
 

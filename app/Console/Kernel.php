@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->commands('refresh:third-party-live')->everyFiveMinutes();
+        $schedule->commands('kkdev:scrape-now')->everyFiveMinutes();
     }
 
     /**
