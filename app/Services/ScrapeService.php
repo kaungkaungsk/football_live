@@ -12,7 +12,7 @@ class ScrapeService {
         $html =  file_get_html($targetUrl);
         if($html){
 
-            #for today
+            //for today
             $today_div = $html->find('.tag_content', 1);
             $today_matches = [];
             $tournaments = $today_div->find('.tourz');
@@ -47,7 +47,7 @@ class ScrapeService {
                 }
             }
 
-            #for tomorrow
+            //for tomorrow
             $tomorrow_div = $html->find('.tag_content', 2);
             $tournaments = $tomorrow_div->find('.tourz');
             $tomorrow_matches = [];
