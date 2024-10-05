@@ -17,7 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('team2_id');
             $table->unsignedBigInteger('tag_id');
             $table->dateTime('match_date');
-            $table->text('links')->default('-');
+            $table->text('links');
+            // $table->text('links')->default('-');
             $table->enum('link_type', ['M3U8', 'RTMP']);
             $table->timestamps();
 
