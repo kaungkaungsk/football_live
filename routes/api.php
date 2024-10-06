@@ -32,5 +32,7 @@ Route::controller(AdsController::class)->group(function () {
     Route::post('/click_count', 'postClickCount');
 });
 
-Route::get('/scrape', [ScrapeController::class, 'scrape']);
+Route::get('/scrape/matches', [ScrapeController::class, 'scrape']);
+Route::get('/get/matches', [ScrapeController::class, 'getMatches']);
 Route::get('/scrape/{id}', [ScrapeController::class, 'links']);
+

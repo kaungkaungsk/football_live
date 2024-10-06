@@ -79,7 +79,8 @@ class FootballApiController2 extends Controller
         $footballMatch = FootballMatch::with(['team1', 'team2'])->orderBy('match_date', 'ASC')->get();
 
         // $apiLive = self::getApiLive();
-        $apiLive = ScrapeService::getScrapedMatches();
+        $controller = ScrapeController();
+        $apiLive = $controller->getMatches();
 
         $collection = [
             'app_data' => $appData,

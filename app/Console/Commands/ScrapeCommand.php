@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Services\ScrapeService;
+use App\Http\Controllers\ScrapeController;
 use Illuminate\Console\Command;
 
 class ScrapeCommand extends Command
@@ -26,6 +26,7 @@ class ScrapeCommand extends Command
      */
     public function handle()
     {
-        ScrapeService::scrapeMatches();
+       $controller = new ScrapeController();
+       $controller->scrape();
     }
 }
