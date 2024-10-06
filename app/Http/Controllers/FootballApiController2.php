@@ -16,9 +16,9 @@ use App\Traits\CipherTrait;
 use App\Models\Advertisement;
 use App\Models\FootballMatch;
 use App\Models\SportHighlight;
-use App\Services\ScrapeService;
 use App\Models\FootballHighlight;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\ScrapeController;
 
 class FootballApiController2 extends Controller
 {
