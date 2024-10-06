@@ -2,8 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Http\Controllers\ScrapeController;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\ScrapeController;
 
 class ScrapeCommand extends Command
 {
@@ -28,5 +29,6 @@ class ScrapeCommand extends Command
     {
        $controller = new ScrapeController();
        $controller->scrape();
+       Log::info("Scraped at " . now());
     }
 }
