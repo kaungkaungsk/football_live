@@ -1,0 +1,548 @@
+[
+    {
+        "video_links": [
+            {
+                "name": "HD1",
+                "cdn": "custom",
+                "url": "https://obevcimanyd179569584.thapcam.link/1II-83d_Xe_KCBw5VK965g/Fv2lucGIbhPi2caWYvF5Lg/1728415720640/live/phoHD/playlist.m3u8",
+                "role": "guest",
+                "referer": "https://i.fdcdn.xyz/"
+            },
+            {
+                "name": "HD2",
+                "cdn": "custom",
+                "url": "https://live-kh-1123898219.thapcam.link/-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mjg0MTU3MjAsInVyaSI6Ii9waG9IRCIsImlhdCI6MTcyODM5NDEyMH0.s4GYUVxxa9-EemH9C5Id_rXkQ0suO3JYo4nO2cPQauk-/phoHD/playlist.m3u8",
+                "role": "guest",
+                "referer": "https://i.fdcdn.xyz/"
+            },
+            {
+                "name": "SD",
+                "cdn": "custom",
+                "url": "https://live-eu-pzybaks9eeliv.thapcam.link/3260f3f7b95cb990131bbc04e0ca5db9/1728415720640/live/phoSD/playlist.m3u8",
+                "role": "guest",
+                "referer": "https://i.fdcdn.xyz/"
+            },
+            {
+                "name": "FullHD",
+                "cdn": "custom",
+                "url": "https://vb90xltcvg-secure.nsnd.live/xz2c5OmeVLzGuKhPOula4g/4f331a41223542c17c4032aeaac138d5/1728415720/live/_definst_/stream_1_1bda7@phoFHD/playlist.m3u8",
+                "role": "guest",
+                "referer": "https://i.fdcdn.xyz/"
+            },
+            {
+                "name": "HD NHANH",
+                "cdn": "custom",
+                "url": "https://fdcdn.livestreameuro.live/live/phoHD.flv",
+                "role": "guest",
+                "referer": "https://i.fdcdn.xyz/"
+            },
+            {
+                "name": "Nh\u00e0 \u0111\u00e0i",
+                "cdn": "custom",
+                "url": "https://obevcimanyd179591709.thapcam.link/mUB8W6KSbK-tvJ72uxejhQ/Fv2lucGIbhPi2caWYvF5Lg/1728415720640/live/may251/playlist.m3u8",
+                "role": "guest",
+                "referer": "https://i.fdcdn.xyz/"
+            },
+            {
+                "name": "Backup 1",
+                "cdn": "custom",
+                "url": "https://apisportvb90xltcbk-secure.nsnd.live/6ieJ-DBoQijEcrJPH0wMvQ/Fv2lucGIbhPi2caWYvF5Lg/1728415720640/live/sd-6MtLeBjxDiUYDgsYJP/playlist.m3u8",
+                "role": "guest",
+                "referer": "https://i.fdcdn.xyz/"
+            }
+        ],
+        "date": "",
+        "league": "AFF Championship",
+        "home": {
+            "name": "Brunei Darussalam",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/Brunei.png"
+        },
+        "away": {
+            "name": "Timor Leste",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/Timor%20Leste.png"
+        }
+    },
+    {
+        "video_links": [
+            {
+                "name": "Ng\u01b0\u1eddi L\u00f4ng",
+                "cdn": "redirect",
+                "url": "https://xem3.cakeo33.live/truc-tiep/zonguldak-vs-turk-metal-kirikkale-b9ouf3lb46-rid-65abfq5zk8",
+                "role": "guest",
+                "referer": "https://i.fdcdn.xyz/"
+            },
+            {
+                "name": "Backup 1",
+                "cdn": "custom",
+                "url": "https://apisportvb90xltcbk-secure.nsnd.live/Bvp14p-BghJmU5cFr-H_lg/Fv2lucGIbhPi2caWYvF5Lg/1728415720971/live/sd-6MtM8fnXtJ9FpG4Un7/playlist.m3u8",
+                "role": "guest",
+                "referer": "https://i.fdcdn.xyz/"
+            }
+        ],
+        "date": "",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Zonguldak",
+            "logo": "https://static.flashscore.com/res/image/data/6H55adWg-dhYPKb6M.png"
+        },
+        "away": {
+            "name": "Turk Metal Kirikkale",
+            "logo": "https://static.flashscore.com/res/image/data/QkKN3FWg-tKMuLqcp.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-09 05:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Fethiyespor",
+            "logo": "https://img.thesports.com/football/team/d1de7a445869920ef75829ac917c84ab.png"
+        },
+        "away": {
+            "name": "Duzcespor",
+            "logo": "https://static.flashscore.com/res/image/data/pd0D58g5-SjwKN1O0.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-09 06:15:00",
+        "league": "Women's Champions League",
+        "home": {
+            "name": "Res Roma (w)",
+            "logo": "https://img.thesports.com/football/team/fe8f34c635eacfbea4d4b1d15e381387.png"
+        },
+        "away": {
+            "name": "VfL Wolfsburg (w)",
+            "logo": "https://img.thesports.com/football/team/03645e9c1d7fd2c48705622f52fd901e.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-09 06:15:00",
+        "league": "Women's Champions League",
+        "home": {
+            "name": "Lyon (w)",
+            "logo": "https://img.thesports.com/football/team/484ae7b7bd74733551f909e8bcf6f43f.png"
+        },
+        "away": {
+            "name": "Galatasaray SK (W)",
+            "logo": "https://img.thesports.com/football/team/5687dc26a16e15395ad9dfd0eab34009.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-09 08:30:00",
+        "league": "Women's Champions League",
+        "home": {
+            "name": "Celtic (w)",
+            "logo": "https://img.thesports.com/football/team/13395dfabc7041c5391900ec0675620d.png"
+        },
+        "away": {
+            "name": "FC Twente Enschede (w)",
+            "logo": "https://img.thesports.com/football/team/93165e0bdad1c0051109192798bf0811.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-09 08:30:00",
+        "league": "Women's Champions League",
+        "home": {
+            "name": "Chelsea FC (w)",
+            "logo": "https://img.thesports.com/football/team/b365ad0e85e2b1bcbf63f7a0f2f70a79.png"
+        },
+        "away": {
+            "name": "Real Madrid (w)",
+            "logo": "https://static.flashscore.com/res/image/data/A7kHoxZA-fcDVLdrL.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 06:15:00",
+        "league": "Women's Champions League",
+        "home": {
+            "name": "Bayern Munchen (w)",
+            "logo": "https://img.thesports.com/football/team/57ec3afbec462319117d3d7f90f746db.png"
+        },
+        "away": {
+            "name": "Arsenal (w)",
+            "logo": "https://img.thesports.com/football/team/b61190e348449a746ef3f802e7ebc701.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 06:15:00",
+        "league": "Women's Champions League",
+        "home": {
+            "name": "Hammarby (w)",
+            "logo": "https://img.thesports.com/football/team/0678ca2eae02d542cc931e81b74de122.jpg"
+        },
+        "away": {
+            "name": "St. Polten (w)",
+            "logo": "https://img.thesports.com/football/team/981b3dcddc35dd0e8f213b0932531774.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Giao h\u1eefu",
+        "home": {
+            "name": "Vietnam",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/vietnam1.png"
+        },
+        "away": {
+            "name": "India",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/india.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 01:30:00",
+        "league": "Giao h\u1eefu",
+        "home": {
+            "name": "Germany U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/germany1.png"
+        },
+        "away": {
+            "name": "Spain U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/Spain.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 02:30:00",
+        "league": "Giao h\u1eefu",
+        "home": {
+            "name": "France U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/france(1).png"
+        },
+        "away": {
+            "name": "Denmark U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/denmark.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-09 22:30:00",
+        "league": "AFC Women's Champion League",
+        "home": {
+            "name": "Bam Khatoon (W)",
+            "logo": ""
+        },
+        "away": {
+            "name": "Kaya FC (w)",
+            "logo": "https://img.thesports.com/football/team/cc07df4709bfbf8c4b6c3bd8a6f90698.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 01:30:00",
+        "league": "AFC Women's Champion League",
+        "home": {
+            "name": "Wuhan Jianghan (w)",
+            "logo": "https://img.thesports.com/football/team/e5c9882eac2bcd64767b4cdb6544dcd7.png"
+        },
+        "away": {
+            "name": "Hyundai Steel Red Angels (w)",
+            "logo": "https://img.thesports.com/football/team/ea4ce3a397e17ff504fcb9a4b1c4f740.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-09 23:30:00",
+        "league": "J League Cup",
+        "home": {
+            "name": "Albirex Niigata",
+            "logo": "https://img.thesports.com/football/team/a4bfaa33f9e24bdb4a4952a0b4aab142.png"
+        },
+        "away": {
+            "name": "Kawasaki Frontale",
+            "logo": "https://img.thesports.com/football/team/937795c0851c1e794e96a5cb660fcd59.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-09 23:30:00",
+        "league": "J League Cup",
+        "home": {
+            "name": "Yokohama Marinos",
+            "logo": "https://img.thesports.com/football/team/78ddaaa79d9502f5e2df0fbb6261f937.png"
+        },
+        "away": {
+            "name": "Nagoya Grampus",
+            "logo": "https://img.thesports.com/football/team/9016116f75adecb34b0870d0712e3b0d.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-09 23:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Adiyamanspor",
+            "logo": "https://img.thesports.com/football/team/8751e7ea2d0c7d2a2a5b87e113e714f2.png"
+        },
+        "away": {
+            "name": "Afjet Afyonspor",
+            "logo": "https://img.thesports.com/football/team/740e82e17aac68571f9f5e8d70dc7d10.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Agri 1970 Spor",
+            "logo": "https://img.thesports.com/football/team/a7fb46d186aadf6c377dd6659ebc77d7.png"
+        },
+        "away": {
+            "name": "Utkoi",
+            "logo": "https://img.thesports.com/football/team/a38ae7ca55881e35f14b3fd6d020df74.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Yeni Amasya Spor",
+            "logo": "https://img.thesports.com/football/team/cd7e99cf8eb4e4193a2d6f32280933b2.png"
+        },
+        "away": {
+            "name": "Bucak Belediye Oguzhanspor",
+            "logo": "https://img.thesports.com/football/team/10360bb27acdf1113523c0ebea904760.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Bayburt Ozel Idare",
+            "logo": "https://img.thesports.com/football/team/1893526b360d32f7938bb63713029a07.png"
+        },
+        "away": {
+            "name": "Bergama Belediyespor",
+            "logo": "https://img.thesports.com/football/team/073bc0c3d04eb94d5d8fe01c71afd78a.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Beykoz Ishakli Spor",
+            "logo": ""
+        },
+        "away": {
+            "name": "Mardin BB",
+            "logo": "https://img.thesports.com/football/team/c8e5cfaff2df3e46466c2468455b97a4.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Bill",
+            "logo": "https://img.thesports.com/football/team/e1864166b363189d0858f5c39e05c521.png"
+        },
+        "away": {
+            "name": "Kelkit Belediye Hurriyet",
+            "logo": "https://img.thesports.com/football/team/43adfc985c0b287bddce2b5cec132a6c.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Ergene Velimese",
+            "logo": "https://img.thesports.com/football/team/f4d151b066995aa5e384bfae4ae00538.png"
+        },
+        "away": {
+            "name": "Cankaya FK",
+            "logo": "https://img.thesports.com/football/team/d0ab99bbd50621b45d92e2bfe8a72288.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Artvin Hopaspor",
+            "logo": "https://img.thesports.com/football/team/c7ef810171c64895c16b85b56d1b3c28.png"
+        },
+        "away": {
+            "name": "Dai Lin Jissbon",
+            "logo": "https://img.thesports.com/football/team/52bf6a7e9567721adc12a66c13d6b66e.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Kucukcekmece",
+            "logo": "https://img.thesports.com/football/team/b670dfc593340027581047db105f3347.png"
+        },
+        "away": {
+            "name": "Altinordu",
+            "logo": "https://img.thesports.com/football/team/898b4268d716dd1b19f1560e55f82814.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Muglaspor",
+            "logo": "https://img.thesports.com/football/team/999763a4266117929192ca5b348a2537.png"
+        },
+        "away": {
+            "name": "Sariyer",
+            "logo": "https://img.thesports.com/football/team/24067249253d42b354d1a6316a377f76.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Nazillispor",
+            "logo": "https://img.thesports.com/football/team/1fef01883d26a155ac43033373015e6d.jpg"
+        },
+        "away": {
+            "name": "Somaspor",
+            "logo": "https://img.thesports.com/football/team/51b0a36787fdcd019acb70f9e1c91091.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Nigde Belediyesispor",
+            "logo": ""
+        },
+        "away": {
+            "name": "Aksarayspor",
+            "logo": "https://img.thesports.com/football/team/d4715a173af399800d774ee20ef0d18a.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 00:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Yozgat Bld Bozokspor",
+            "logo": ""
+        },
+        "away": {
+            "name": "Kirklarelispor",
+            "logo": "https://img.thesports.com/football/team/090afe0d4abb5dfdccb84641fe115680.jpg"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 01:30:00",
+        "league": "Turkish Cup",
+        "home": {
+            "name": "Altay Spor Kulubu",
+            "logo": "https://img.thesports.com/football/team/116c4243d5045a3541ad101e2b65971c.png"
+        },
+        "away": {
+            "name": "Karaman Belediyespor",
+            "logo": "https://img.thesports.com/football/team/3f5c82900b38b0c2860851cb53b47984.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-09 23:30:00",
+        "league": "Euro U19",
+        "home": {
+            "name": "Czech Republic U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/czech1.png"
+        },
+        "away": {
+            "name": "San Marino Calcio U19",
+            "logo": "https://img.thesports.com/football/team/379e555ad46fa7b47a1cc90495634af5.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-09 23:30:00",
+        "league": "Euro U19",
+        "home": {
+            "name": "Turkey U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/turkey1.png"
+        },
+        "away": {
+            "name": "Gibraltar U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/gibralta.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 04:30:00",
+        "league": "Euro U19",
+        "home": {
+            "name": "Switzerland U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/Switzerland.png"
+        },
+        "away": {
+            "name": "Finland U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/finland1.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 05:30:00",
+        "league": "Euro U19",
+        "home": {
+            "name": "Malta U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/malta.png"
+        },
+        "away": {
+            "name": "Poland U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/poland.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 05:30:00",
+        "league": "Euro U19",
+        "home": {
+            "name": "Slovakia U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/slovakia.png"
+        },
+        "away": {
+            "name": "luxembourg U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/Luxembourg.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 05:30:00",
+        "league": "Euro U19",
+        "home": {
+            "name": "North Macedonia U19",
+            "logo": "https://i.imgur.com/WygntN9.png"
+        },
+        "away": {
+            "name": "Latvia U19",
+            "logo": "https://g7w1r.4shares.live/teams/C%E1%BB%9D%20qu%E1%BB%91c%20gia/latvia.png"
+        }
+    },
+    {
+        "video_links": [],
+        "date": "2024-10-10 05:00:00",
+        "league": "Copa Del Rey",
+        "home": {
+            "name": "San Tirso",
+            "logo": "https://img.thesports.com/football/team/7ec2b0b1426e831008cd15fae7641626.png"
+        },
+        "away": {
+            "name": "Selaya FC",
+            "logo": "https://img.thesports.com/football/team/8c7fe7cc93e79808a092a0e7fecf0cde.png"
+        }
+    }
+]

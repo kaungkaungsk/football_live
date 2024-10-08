@@ -1,3 +1,4 @@
+import pytz
 import requests
 import json
 from datetime import datetime
@@ -29,9 +30,13 @@ class ScrapeService:
                     href = match['href']
                     id = href.split('-')[-1]  # Get the last part of the href
                     home = match.select_one('.team--home')
+                    if home is None:
+                        continue
                     home_logo = home.select_one('.team__logo')['data-src']
                     home_name = home.select_one('.team__name').get_text()
                     away = match.select_one('.team--away')
+                    if away is None:
+                        continue
                     away_logo = away.select_one('.team__logo')['data-src']
                     away_name = away.select_one('.team__name').get_text()
                     video_links = ScrapeService.get_video_links(id)
@@ -64,9 +69,13 @@ class ScrapeService:
                     href = match['href']
                     id = href.split('-')[-1]
                     home = match.select_one('.team--home')
+                    if home is None:
+                        continue
                     home_logo = home.select_one('.team__logo')['data-src']
                     home_name = home.select_one('.team__name').get_text()
                     away = match.select_one('.team--away')
+                    if away is None:
+                        continue
                     away_logo = away.select_one('.team__logo')['data-src']
                     away_name = away.select_one('.team__name').get_text()
                     video_links = ScrapeService.get_video_links(id)
@@ -88,33 +97,20 @@ class ScrapeService:
             # Merge today and tomorrow matches
             merged_array = today_matches + tomorrow_matches
             json_data = json.dumps(merged_array, indent=4)
-
-             # Define the path to the Laravel storage directory
-            storage_path = os.path.join(os.path.dirname(__file__), '..', '..', 'storage', 'app', 'data', 'scrape.json')
+            path = 'data/scrape.json'
 
             # Ensure the directory exists
-            os.makedirs(os.path.dirname(storage_path), exist_ok=True)
+            os.makedirs(os.path.dirname(path), exist_ok=True)
 
-            # Write to the JSON file
-            with open(storage_path, 'w') as json_file:
+            with open(path, 'w') as json_file:
                 json_file.write(json_data)
 
     @staticmethod
     def get_scraped_matches():
-        # Define the path to the Laravel storage directory
-        path = os.path.join(os.path.dirname(__file__), '..', '..', 'storage', 'app', 'data', 'scrape.json')
-
-        try:
-            with open(path, 'r') as json_file:
-                data = json.load(json_file)
-            return data if data else []
-        except FileNotFoundError:
-            print(f"File not found: {path}")
-            return []  # Return an empty list if the file does not exist
-        except json.JSONDecodeError:
-            print(f"Error decoding JSON from file: {path}")
-            return []  # Return an empty list if JSON is not valid
-
+        path = 'data/scrape.json'
+        with open(path, 'r') as json_file:
+            data = json.load(json_file)
+        return data if data else []
 
     @staticmethod
     def get_video_links(id):
@@ -142,14 +138,18 @@ class ScrapeService:
 
         try:
             date_time = datetime.strptime(formatted_input, '%H:%M %d/%m %Y')
-            return date_time.strftime('%Y-%m-%d %H:%M:%S')
+            myanmar_timezone = pytz.timezone('Asia/Yangon')
+            date_time_myanmar = pytz.utc.localize(date_time).astimezone(myanmar_timezone)
+
+            # Return formatted date in Myanmar Time
+            return date_time_myanmar.strftime('%Y-%m-%d %H:%M:%S')
+            # return date_time.strftime('%Y-%m-%d %H:%M:%S')
         except ValueError as e:
             print(f"Error parsing date '{formatted_input}': {e}")
             return ''  # Return an empty string on error
 
 
 if __name__ == '__main__':
-    print(os.environ)
     ScrapeService.scrape_matches()
     matches = ScrapeService.get_scraped_matches()
-    # print(matches)
+    print(matches)

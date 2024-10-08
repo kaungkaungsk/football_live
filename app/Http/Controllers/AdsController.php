@@ -44,6 +44,7 @@ class AdsController extends Controller
             'open_ad' => $openAds,
         ];
 
+        // return json_encode($data);
         return $this->encryptData(json_encode($data));
     }
 
