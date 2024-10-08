@@ -97,17 +97,19 @@ class ScrapeService:
             # Merge today and tomorrow matches
             merged_array = today_matches + tomorrow_matches
             json_data = json.dumps(merged_array, indent=4)
-            path = '../../storge/app/data/scrape.json'
+            # Define the path to the Laravel storage directory
+            storage_path = os.path.join(os.path.dirname(__file__), '..', '..', 'storage', 'app', 'data', 'scrape.json')
 
             # Ensure the directory exists
-            os.makedirs(os.path.dirname(path), exist_ok=True)
+            os.makedirs(os.path.dirname(storage_path), exist_ok=True)
 
-            with open(path, 'w') as json_file:
+            # Write to the JSON file
+            with open(storage_path, 'w') as json_file:
                 json_file.write(json_data)
 
     @staticmethod
     def get_scraped_matches():
-        path = '../../storge/app/data/scrape.json'
+        path = os.path.join(os.path.dirname(__file__), '..', '..', 'storage', 'app', 'data', 'scrape.json')
         with open(path, 'r') as json_file:
             data = json.load(json_file)
         return data if data else []
