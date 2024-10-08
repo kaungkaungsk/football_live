@@ -97,7 +97,7 @@ class ScrapeService:
             # Merge today and tomorrow matches
             merged_array = today_matches + tomorrow_matches
             json_data = json.dumps(merged_array, indent=4)
-            path = 'data/scrape.json'
+            path = '../../storge/app/data/scrape.json'
 
             # Ensure the directory exists
             os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -107,7 +107,7 @@ class ScrapeService:
 
     @staticmethod
     def get_scraped_matches():
-        path = 'data/scrape.json'
+        path = '../../storge/app/data/scrape.json'
         with open(path, 'r') as json_file:
             data = json.load(json_file)
         return data if data else []
